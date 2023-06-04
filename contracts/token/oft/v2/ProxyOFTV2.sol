@@ -2,24 +2,21 @@
 
 pragma solidity ^0.8.0;
 
-import "./BaseOFTV2.sol";
+import "./fee/BaseOFTWithFee.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
-interface GravitaDebtToken is IERC20 {
+interface IGravitaDebtToken is IERC20 {
     function mintFromWhitelistedContract(uint256 _amount) external;
 
     function burnFromWhitelistedContract(uint256 _amount) external;
 }
 
-contract ProxyOFTV2 is BaseOFTV2 {
-    GravitaDebtToken internal immutable innerToken;
+contract ProxyOFTV2 is BaseOFTWithFee {
+    IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
 
-    // total amount is transferred from this chain to other chains, ensuring the total is less than uint64.max in sd
-    uint public outboundAmount;
-
-    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTV2(_sharedDecimals, _lzEndpoint) {
-        innerToken = GravitaDebtToken(_token);
+    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+        innerToken = IGravitaDebtToken(_token);
 
         (bool success, bytes memory data) = _token.staticcall(abi.encodeWithSignature("decimals()"));
         require(success, "ProxyOFT: failed to get token decimals");
@@ -50,16 +47,10 @@ contract ProxyOFTV2 is BaseOFTV2 {
 
         innerToken.burnFromWhitelistedContract(_amount);
 
-        // check total outbound amount
-        uint cap = _sd2ld(type(uint64).max);
-        require(cap >= outboundAmount, "ProxyOFT: outboundAmount overflow");
-
         return _amount;
     }
 
     function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns (uint) {
-        outboundAmount -= _amount;
-
         innerToken.mintFromWhitelistedContract(_amount);
 
         return _transferFrom(address(this), _toAddress, _amount);

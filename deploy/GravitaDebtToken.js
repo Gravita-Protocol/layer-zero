@@ -9,14 +9,13 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log(`[${hre.network.name}] Endpoint Address: ${lzEndpointAddress}`)
     const sharedDecimals = 6
-    const token = "0x78076562e30Fd49c70C4E91f65644d15C32C1839" // goerli Debt Token
 
-    await deploy("ExampleProxyOFTV2", {
+    await deploy("GravitaDebtToken", {
         from: deployer,
-        args: [token, sharedDecimals, lzEndpointAddress],
+        args: [lzEndpointAddress, sharedDecimals],
         log: true,
         waitConfirmations: 1,
     })
 }
 
-module.exports.tags = ["ExampleProxyOFTV2"]
+module.exports.tags = ["GravitaDebtToken"]
