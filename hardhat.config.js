@@ -171,6 +171,11 @@ module.exports = {
             chainId: 420,
             accounts: accounts(),
         },
+        "zksync-goerli": {
+            url: `https://testnet.era.zksync.dev`,
+            chainId: 280,
+            accounts: accounts(),
+        },
         "fantom-testnet": {
             url: `https://rpc.ankr.com/fantom_testnet`,
             chainId: 4002,

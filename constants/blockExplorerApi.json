@@ -13,7 +13,7 @@
   "mumbai": "https://api-testnet.polygonscan.com/api",
   "optimism": "https://api-optimistic.etherscan.io/api",
   "optimism-goerli": "https://api-goerli-optimistic.etherscan.io/api",
-
+  "zksync-goerli": "https://goerli.explorer.zksync.io",
   "aptos": "",
   "celo": "",
   "dexalot": "",
