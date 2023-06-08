@@ -140,5 +140,10 @@ module.exports = {
             chainId: 420,
             accounts: accounts(),
         },
+        "zksync-goerli": {
+            url: `https://testnet.era.zksync.dev`,
+            chainId: 280,
+            accounts: accounts(),
+        },
     },
 }
