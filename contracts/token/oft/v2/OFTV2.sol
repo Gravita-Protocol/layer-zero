@@ -15,6 +15,9 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     address public stabilityPoolAddress;
     address public vesselManagerAddress;
 
+    // stores SC addresses that are allowed to mint/burn the token (FeeCollector, AMO strategies)
+    mapping(address => bool) public whitelistedContracts;
+
     constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         uint8 decimals = decimals();
         require(_sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
@@ -27,6 +30,10 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
 
     function _requireCallerIsBOorVesselMorSP() internal view {
         require(msg.sender == borrowerOperationsAddress || msg.sender == vesselManagerAddress || msg.sender == stabilityPoolAddress, "DebtToken: Caller is neither BorrowerOperations nor VesselManager nor StabilityPool");
+    }
+
+    function _requireCallerIsWhitelistedContract() internal view {
+        require(whitelistedContracts[msg.sender], "DebtToken: Caller is not a whitelisted SC");
     }
 
     /************************************************************************
@@ -55,6 +62,16 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     function burn(address _account, uint256 _amount) external {
         _requireCallerIsBOorVesselMorSP();
         _burn(_account, _amount);
+    }
+
+    function mintFromWhitelistedContract(uint256 _amount) external {
+        _requireCallerIsWhitelistedContract();
+        _mint(msg.sender, _amount);
+    }
+
+    function burnFromWhitelistedContract(uint256 _amount) external {
+        _requireCallerIsWhitelistedContract();
+        _burn(msg.sender, _amount);
     }
 
     function sendToPool(address _sender, address _poolAddress, uint256 _amount) external {
