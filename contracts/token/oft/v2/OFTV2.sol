@@ -7,6 +7,7 @@ import "./fee/BaseOFTWithFee.sol";
 
 contract OFTV2 is BaseOFTWithFee, ERC20 {
     event EmergencyStopMintingCollateral(address _asset, bool state);
+    event WhitelistChanged(address _whitelisted, bool whitelisted);
 
     mapping(address => bool) public emergencyStopMintingCollateral;
 
@@ -89,6 +90,12 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
         stabilityPoolAddress = _stabilityPoolAddress;
         vesselManagerAddress = _vesselManagerAddress;
     }
+
+    function setWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
+		whitelistedContracts[_address] = _isWhitelisted;
+
+		emit WhitelistChanged(_address, _isWhitelisted);
+	}
 
     /************************************************************************
      * internal functions
