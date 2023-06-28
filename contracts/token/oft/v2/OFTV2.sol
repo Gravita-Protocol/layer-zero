@@ -8,6 +8,7 @@ import "./fee/BaseOFTWithFee.sol";
 contract OFTV2 is BaseOFTWithFee, ERC20 {
     event EmergencyStopMintingCollateral(address _asset, bool state);
     event WhitelistChanged(address _whitelisted, bool whitelisted);
+    event GravitaAddressesChanged(address _borrowerOperationsAddress, address _stabilityPoolAddress, address _vesselManagerAddress);
 
     mapping(address => bool) public emergencyStopMintingCollateral;
 
@@ -86,9 +87,13 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function setAddresses(address _borrowerOperationsAddress, address _stabilityPoolAddress, address _vesselManagerAddress) public onlyOwner {
+        require(_isContract(_borrowerOperationsAddress), "Invalid contract address");
+        require(_isContract(_stabilityPoolAddress), "Invalid contract address");
+        require(_isContract(_vesselManagerAddress), "Invalid contract address");
         borrowerOperationsAddress = _borrowerOperationsAddress;
         stabilityPoolAddress = _stabilityPoolAddress;
         vesselManagerAddress = _vesselManagerAddress;
+        emit GravitaAddressesChanged(_borrowerOperationsAddress, _stabilityPoolAddress, _vesselManagerAddress);
     }
 
     function setWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
