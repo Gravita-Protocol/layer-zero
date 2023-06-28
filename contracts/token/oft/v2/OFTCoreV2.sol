@@ -42,6 +42,7 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
 
     // _sharedDecimals should be the minimum decimals on all chains
     constructor(uint8 _sharedDecimals, address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {
+        require(_lzEndpoint != address(0), "Invalid address");
         sharedDecimals = _sharedDecimals;
     }
 

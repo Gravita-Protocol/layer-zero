@@ -3,19 +3,15 @@
 pragma solidity ^0.8.0;
 
 import "./fee/BaseOFTWithFee.sol";
+import "./IGravitaDebtToken.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
-
-interface IGravitaDebtToken is IERC20 {
-    function mintFromWhitelistedContract(uint256 _amount) external;
-
-    function burnFromWhitelistedContract(uint256 _amount) external;
-}
 
 contract ProxyOFTV2 is BaseOFTWithFee {
     IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
 
     constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+        require(_token != address(0) && _lzEndpoint != address(0), "Invalid address");
         innerToken = IGravitaDebtToken(_token);
 
         (bool success, bytes memory data) = _token.staticcall(abi.encodeWithSignature("decimals()"));
