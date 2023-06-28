@@ -66,6 +66,7 @@ describe.only("OFT v2: ", function () {
             remoteChainId,
             bobAddressBytes32,
             initialAmount,
+            initialAmount,
             [alice.address, ethers.constants.AddressZero, "0x"],
             { value: nativeFee }
         )
@@ -118,6 +119,7 @@ describe.only("OFT v2: ", function () {
             remoteChainId,
             bobAddressBytes32,
             amount,
+            amount,
             [alice.address, ethers.constants.AddressZero, "0x"],
             { value: nativeFee }
         )
@@ -132,6 +134,7 @@ describe.only("OFT v2: ", function () {
                 alice.address,
                 remoteChainId,
                 bobAddressBytes32,
+                amount,
                 amount,
                 [alice.address, ethers.constants.AddressZero, "0x"],
                 {value: nativeFee}
