@@ -22,7 +22,6 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
 
     constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_lzEndpoint) {
         uint8 decimals = decimals();
-        require(sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
         ld2sdRate = 10 ** (decimals - sharedDecimals);
     }
 
