@@ -57,6 +57,10 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
         emit ReceiveFromChain(_srcChainId, _to, _amount);
 
         // call
+        if (!_isContract(_to)) {
+            emit NonContractAddress(_to);
+            return;
+        }
         IOFTReceiverV2(_to).onOFTReceived{gas: _gasForCall}(_srcChainId, _srcAddress, _nonce, _from, _amount, _payload);
     }
 
@@ -142,11 +146,6 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
         if (!credited) {
             amount = _creditTo(_srcChainId, address(this), amount);
             nonces[_nonce] = true;
-        }
-
-        if (!_isContract(to)) {
-            emit NonContractAddress(to);
-            return;
         }
 
         // workaround for stack too deep
