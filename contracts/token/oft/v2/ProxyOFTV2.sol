@@ -52,7 +52,9 @@ contract ProxyOFTV2 is BaseOFTWithFee {
 
     function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns (uint) {
         innerToken.mintFromWhitelistedContract(_amount);
-
+        if (_toAddress == address(this)) {
+            return _amount;
+        }
         return _transferFrom(address(this), _toAddress, _amount);
     }
 
