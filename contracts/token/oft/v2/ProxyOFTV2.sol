@@ -14,9 +14,8 @@ interface IGravitaDebtToken is IERC20 {
 contract ProxyOFTV2 is BaseOFTWithFee {
     IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
-    uint8 internal constant sharedDecimals = 6;
 
-    constructor(address _token, address _lzEndpoint) BaseOFTWithFee(sharedDecimals, _lzEndpoint) {
+    constructor(address _token, address _lzEndpoint) BaseOFTWithFee(_lzEndpoint) {
         innerToken = IGravitaDebtToken(_token);
         ld2sdRate = 10 ** (18 - sharedDecimals);
     }

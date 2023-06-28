@@ -8,11 +8,11 @@ import "./fee/BaseOFTWithFee.sol";
 contract OFTV2 is BaseOFTWithFee, ERC20 {
     event EmergencyStopMintingCollateral(address _asset, bool state);
     event WhitelistChanged(address _whitelisted, bool whitelisted);
+    event GravitaAddressesChanged(address _borrowerOperationsAddress, address _stabilityPoolAddress, address _vesselManagerAddress);
 
     mapping(address => bool) public emergencyStopMintingCollateral;
 
     uint internal immutable ld2sdRate;
-    uint8 internal constant sharedDecimals = 6;
     address public borrowerOperationsAddress;
     address public stabilityPoolAddress;
     address public vesselManagerAddress;
@@ -20,7 +20,7 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     // stores SC addresses that are allowed to mint/burn the token (FeeCollector, AMO strategies)
     mapping(address => bool) public whitelistedContracts;
 
-    constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(sharedDecimals, _lzEndpoint) {
+    constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_lzEndpoint) {
         uint8 decimals = decimals();
         require(sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
         ld2sdRate = 10 ** (decimals - sharedDecimals);
@@ -87,15 +87,23 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function setAddresses(address _borrowerOperationsAddress, address _stabilityPoolAddress, address _vesselManagerAddress) public onlyOwner {
+        require(_isContract(_borrowerOperationsAddress), "Invalid contract address");
+        require(_isContract(_stabilityPoolAddress), "Invalid contract address");
+        require(_isContract(_vesselManagerAddress), "Invalid contract address");
         borrowerOperationsAddress = _borrowerOperationsAddress;
         stabilityPoolAddress = _stabilityPoolAddress;
         vesselManagerAddress = _vesselManagerAddress;
+        emit GravitaAddressesChanged(_borrowerOperationsAddress, _stabilityPoolAddress, _vesselManagerAddress);
     }
 
-    function setWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
-        whitelistedContracts[_address] = _isWhitelisted;
+    function addWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = true;
+        emit WhitelistChanged(_address, true);
+    }
 
-        emit WhitelistChanged(_address, _isWhitelisted);
+    function removeWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = false;
+        emit WhitelistChanged(_address, false);
     }
 
     /************************************************************************
@@ -109,16 +117,22 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns (uint) {
+        _requireValidRecipient(_toAddress);
         _mint(_toAddress, _amount);
         return _amount;
     }
 
     function _transferFrom(address _from, address _to, uint _amount) internal virtual override returns (uint) {
+        _requireValidRecipient(_to);
         address spender = _msgSender();
         // if transfer from this contract, no need to check allowance
         if (_from != address(this) && _from != spender) _spendAllowance(_from, spender, _amount);
         _transfer(_from, _to, _amount);
         return _amount;
+    }
+
+    function _requireValidRecipient(address _recipient) internal view {
+        require(_recipient != address(0) && _recipient != address(this), "DebtToken: Cannot transfer tokens directly to the token contract or the zero address");
     }
 
     function _ld2sdRate() internal view virtual override returns (uint) {
