@@ -11,7 +11,7 @@ contract ProxyOFTV2 is BaseOFTWithFee {
     IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
 
-    constructor(address _token, address _lzEndpoint) BaseOFTWithFee(_lzEndpoint) {
+    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         require(_token != address(0) && _lzEndpoint != address(0), "Invalid address");
         innerToken = IGravitaDebtToken(_token);
         ld2sdRate = 10 ** (18 - sharedDecimals);

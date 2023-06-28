@@ -17,7 +17,7 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
     uint8 public constant PT_SEND = 0;
     uint8 public constant PT_SEND_AND_CALL = 1;
 
-    uint8 public constant sharedDecimals = 6;
+    uint8 public sharedDecimals;
 
     bool public useCustomAdapterParams;
     mapping(uint16 => mapping(bytes => mapping(uint64 => bool))) public creditedPackets;
@@ -42,8 +42,9 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
 
     // _sharedDecimals should be the minimum decimals on all chains
 
-    constructor(address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {
+    constructor(uint8 _sharedDecimals, address _lzEndpoint) NonblockingLzApp(_lzEndpoint) {
         require(_lzEndpoint != address(0), "Invalid address");
+        sharedDecimals = _sharedDecimals;
     }
 
     /************************************************************************

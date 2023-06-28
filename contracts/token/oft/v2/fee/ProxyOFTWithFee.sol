@@ -14,7 +14,7 @@ contract ProxyOFTWithFee is BaseOFTWithFee {
     // total amount is transferred from this chain to other chains, ensuring the total is less than uint64.max in sd
     uint public outboundAmount;
 
-    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_lzEndpoint) {
+    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         innerToken = IERC20(_token);
 
         (bool success, bytes memory data) = _token.staticcall(abi.encodeWithSignature("decimals()"));

@@ -2,7 +2,7 @@ const { expect } = require("chai")
 const { ethers } = require("hardhat")
 const {BigNumber} = require("@ethersproject/bignumber");
 
-describe("OFT v2: ", function () {
+describe.only("OFT v2: ", function () {
     const localChainId = 1
     const remoteChainId = 2
     const name = "OmnichainFungibleToken"

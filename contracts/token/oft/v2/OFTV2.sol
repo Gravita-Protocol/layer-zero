@@ -20,7 +20,7 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     // stores SC addresses that are allowed to mint/burn the token (FeeCollector, AMO strategies)
     mapping(address => bool) public whitelistedContracts;
 
-    constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_lzEndpoint) {
+    constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         uint8 decimals = decimals();
         ld2sdRate = 10 ** (decimals - sharedDecimals);
     }

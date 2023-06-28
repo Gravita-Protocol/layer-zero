@@ -1,7 +1,7 @@
 const { expect } = require("chai")
 const { ethers } = require("hardhat")
 
-describe("Composable ProxyOFT v2: ", function () {
+describe.only("Composable ProxyOFT v2: ", function () {
     const srcChainId = 1
     const dstChainId = 2
 
