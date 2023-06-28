@@ -7,6 +7,7 @@ import "./IGravitaDebtToken.sol";
 import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 
 contract ProxyOFTV2 is BaseOFTWithFee {
+    using SafeERC20 for IGravitaDebtToken;
     IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
 
@@ -57,9 +58,9 @@ contract ProxyOFTV2 is BaseOFTWithFee {
     function _transferFrom(address _from, address _to, uint _amount) internal virtual override returns (uint) {
         uint before = innerToken.balanceOf(_to);
         if (_from == address(this)) {
-            innerToken.transfer(_to, _amount);
+            innerToken.safeTransfer(_to, _amount);
         } else {
-            innerToken.transferFrom(_from, _to, _amount);
+            innerToken.safeTransferFrom(_from, _to, _amount);
         }
         return innerToken.balanceOf(_to) - before;
     }
