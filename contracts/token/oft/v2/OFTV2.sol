@@ -53,34 +53,34 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
         return address(this);
     }
 
-    function mint(address _asset, address _account, uint _amount) external {
+    function mint(address _asset, address _account, uint256 _amount) external {
         _requireCallerIsBorrowerOperations();
         require(!emergencyStopMintingCollateral[_asset], "Mint is blocked on this collateral");
 
         _mint(_account, _amount);
     }
 
-    function burn(address _account, uint _amount) external {
+    function burn(address _account, uint256 _amount) external {
         _requireCallerIsBOorVesselMorSP();
         _burn(_account, _amount);
     }
 
-    function mintFromWhitelistedContract(uint _amount) external {
+    function mintFromWhitelistedContract(uint256 _amount) external {
         _requireCallerIsWhitelistedContract();
         _mint(msg.sender, _amount);
     }
 
-    function burnFromWhitelistedContract(uint _amount) external {
+    function burnFromWhitelistedContract(uint256 _amount) external {
         _requireCallerIsWhitelistedContract();
         _burn(msg.sender, _amount);
     }
 
-    function sendToPool(address _sender, address _poolAddress, uint _amount) external {
+    function sendToPool(address _sender, address _poolAddress, uint256 _amount) external {
         _requireCallerIsStabilityPool();
         _transfer(_sender, _poolAddress, _amount);
     }
 
-    function returnFromPool(address _poolAddress, address _receiver, uint _amount) external {
+    function returnFromPool(address _poolAddress, address _receiver, uint256 _amount) external {
         _requireCallerIsVesselMorSP();
         _transfer(_poolAddress, _receiver, _amount);
     }
