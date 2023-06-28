@@ -11,16 +11,10 @@ contract ProxyOFTV2 is BaseOFTWithFee {
     IGravitaDebtToken internal immutable innerToken;
     uint internal immutable ld2sdRate;
 
-    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+    constructor(address _token, address _lzEndpoint) BaseOFTWithFee(_lzEndpoint) {
         require(_token != address(0) && _lzEndpoint != address(0), "Invalid address");
         innerToken = IGravitaDebtToken(_token);
-
-        (bool success, bytes memory data) = _token.staticcall(abi.encodeWithSignature("decimals()"));
-        require(success, "ProxyOFT: failed to get token decimals");
-        uint8 decimals = abi.decode(data, (uint8));
-
-        require(_sharedDecimals <= decimals, "ProxyOFT: sharedDecimals must be <= decimals");
-        ld2sdRate = 10 ** (decimals - _sharedDecimals);
+        ld2sdRate = 10 ** (18 - sharedDecimals);
     }
 
     /************************************************************************
