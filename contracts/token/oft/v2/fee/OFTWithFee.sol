@@ -6,18 +6,17 @@ import "@openzeppelin/contracts/token/ERC20/ERC20.sol";
 import "./BaseOFTWithFee.sol";
 
 contract OFTWithFee is BaseOFTWithFee, ERC20 {
-
     uint internal immutable ld2sdRate;
 
-    constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+    constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_lzEndpoint) {
         uint8 decimals = decimals();
         require(_sharedDecimals <= decimals, "OFTWithFee: sharedDecimals must be <= decimals");
         ld2sdRate = 10 ** (decimals - _sharedDecimals);
     }
 
     /************************************************************************
-    * public functions
-    ************************************************************************/
+     * public functions
+     ************************************************************************/
     function circulatingSupply() public view virtual override returns (uint) {
         return totalSupply();
     }
@@ -27,8 +26,8 @@ contract OFTWithFee is BaseOFTWithFee, ERC20 {
     }
 
     /************************************************************************
-    * internal functions
-    ************************************************************************/
+     * internal functions
+     ************************************************************************/
     function _debitFrom(address _from, uint16, bytes32, uint _amount) internal virtual override returns (uint) {
         address spender = _msgSender();
         if (_from != spender) _spendAllowance(_from, spender, _amount);

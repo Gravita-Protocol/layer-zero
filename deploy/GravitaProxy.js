@@ -8,7 +8,6 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log(`[${hre.network.name}] Endpoint Address: ${lzEndpointAddress}`)
-    const sharedDecimals = 6
     let token
     if ([hre.network.name] == "ethereum") {
         token = "0x15f74458aE0bFdAA1a96CA1aa779D715Cc1Eefe4" // mainnet Debt Token
@@ -18,7 +17,7 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     await deploy("GravitaProxy", {
         from: deployer,
-        args: [token, sharedDecimals, lzEndpointAddress],
+        args: [token, lzEndpointAddress],
         log: true,
         waitConfirmations: 1,
     })

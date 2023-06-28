@@ -14,12 +14,10 @@ contract ProxyOFTWithFee is BaseOFTWithFee {
     // total amount is transferred from this chain to other chains, ensuring the total is less than uint64.max in sd
     uint public outboundAmount;
 
-    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+    constructor(address _token, uint8 _sharedDecimals, address _lzEndpoint) BaseOFTWithFee(_lzEndpoint) {
         innerToken = IERC20(_token);
 
-        (bool success, bytes memory data) = _token.staticcall(
-            abi.encodeWithSignature("decimals()")
-        );
+        (bool success, bytes memory data) = _token.staticcall(abi.encodeWithSignature("decimals()"));
         require(success, "ProxyOFTWithFee: failed to get token decimals");
         uint8 decimals = abi.decode(data, (uint8));
 
@@ -28,8 +26,8 @@ contract ProxyOFTWithFee is BaseOFTWithFee {
     }
 
     /************************************************************************
-    * public functions
-    ************************************************************************/
+     * public functions
+     ************************************************************************/
     function circulatingSupply() public view virtual override returns (uint) {
         return innerToken.totalSupply() - outboundAmount;
     }
@@ -39,8 +37,8 @@ contract ProxyOFTWithFee is BaseOFTWithFee {
     }
 
     /************************************************************************
-    * internal functions
-    ************************************************************************/
+     * internal functions
+     ************************************************************************/
     function _debitFrom(address _from, uint16, bytes32, uint _amount) internal virtual override returns (uint) {
         require(_from == _msgSender(), "ProxyOFTWithFee: owner is not send caller");
 

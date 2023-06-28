@@ -8,11 +8,10 @@ module.exports = async function ({ deployments, getNamedAccounts }) {
 
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
     console.log(`[${hre.network.name}] Endpoint Address: ${lzEndpointAddress}`)
-    const sharedDecimals = 6
 
     await deploy("GravitaDebtToken", {
         from: deployer,
-        args: [lzEndpointAddress, sharedDecimals],
+        args: [lzEndpointAddress],
         log: true,
         waitConfirmations: 1,
     })
