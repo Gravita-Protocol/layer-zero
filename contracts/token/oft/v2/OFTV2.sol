@@ -22,7 +22,7 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         uint8 decimals = decimals();
         require(_sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
-        ld2sdRate = 10 ** (decimals - _sharedDecimals);
+        ld2sdRate = 10**(decimals - _sharedDecimals);
     }
 
     function _requireCallerIsBorrowerOperations() internal view {
@@ -53,34 +53,34 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
         return address(this);
     }
 
-    function mint(address _asset, address _account, uint256 _amount) external {
+    function mint(address _asset, address _account, uint _amount) external {
         _requireCallerIsBorrowerOperations();
         require(!emergencyStopMintingCollateral[_asset], "Mint is blocked on this collateral");
 
         _mint(_account, _amount);
     }
 
-    function burn(address _account, uint256 _amount) external {
+    function burn(address _account, uint _amount) external {
         _requireCallerIsBOorVesselMorSP();
         _burn(_account, _amount);
     }
 
-    function mintFromWhitelistedContract(uint256 _amount) external {
+    function mintFromWhitelistedContract(uint _amount) external {
         _requireCallerIsWhitelistedContract();
         _mint(msg.sender, _amount);
     }
 
-    function burnFromWhitelistedContract(uint256 _amount) external {
+    function burnFromWhitelistedContract(uint _amount) external {
         _requireCallerIsWhitelistedContract();
         _burn(msg.sender, _amount);
     }
 
-    function sendToPool(address _sender, address _poolAddress, uint256 _amount) external {
+    function sendToPool(address _sender, address _poolAddress, uint _amount) external {
         _requireCallerIsStabilityPool();
         _transfer(_sender, _poolAddress, _amount);
     }
 
-    function returnFromPool(address _poolAddress, address _receiver, uint256 _amount) external {
+    function returnFromPool(address _poolAddress, address _receiver, uint _amount) external {
         _requireCallerIsVesselMorSP();
         _transfer(_poolAddress, _receiver, _amount);
     }
@@ -91,15 +91,15 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
         vesselManagerAddress = _vesselManagerAddress;
     }
 
-	function addWhitelist(address _address) external onlyOwner {
-		whitelistedContracts[_address] = true;
-		emit WhitelistChanged(_address, true);
-	}
+    function addWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = true;
+        emit WhitelistChanged(_address, true);
+    }
 
-	function removeWhitelist(address _address) external onlyOwner {
-		whitelistedContracts[_address] = false;
-		emit WhitelistChanged(_address, false);
-	}
+    function removeWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = false;
+        emit WhitelistChanged(_address, false);
+    }
 
     /************************************************************************
      * internal functions
@@ -127,11 +127,8 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function _requireValidRecipient(address _recipient) internal view {
-		require(
-			_recipient != address(0) && _recipient != address(this),
-			"DebtToken: Cannot transfer tokens directly to the token contract or the zero address"
-		);
-	}
+        require(_recipient != address(0) && _recipient != address(this), "DebtToken: Cannot transfer tokens directly to the token contract or the zero address");
+    }
 
     function _ld2sdRate() internal view virtual override returns (uint) {
         return ld2sdRate;
