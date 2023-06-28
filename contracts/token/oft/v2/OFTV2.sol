@@ -12,6 +12,7 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     mapping(address => bool) public emergencyStopMintingCollateral;
 
     uint internal immutable ld2sdRate;
+    uint8 internal constant sharedDecimals = 6;
     address public borrowerOperationsAddress;
     address public stabilityPoolAddress;
     address public vesselManagerAddress;
@@ -19,10 +20,10 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     // stores SC addresses that are allowed to mint/burn the token (FeeCollector, AMO strategies)
     mapping(address => bool) public whitelistedContracts;
 
-    constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
+    constructor(string memory _name, string memory _symbol, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(sharedDecimals, _lzEndpoint) {
         uint8 decimals = decimals();
-        require(_sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
-        ld2sdRate = 10 ** (decimals - _sharedDecimals);
+        require(sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
+        ld2sdRate = 10 ** (decimals - sharedDecimals);
     }
 
     function _requireCallerIsBorrowerOperations() internal view {
@@ -92,10 +93,10 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function setWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
-		whitelistedContracts[_address] = _isWhitelisted;
+        whitelistedContracts[_address] = _isWhitelisted;
 
-		emit WhitelistChanged(_address, _isWhitelisted);
-	}
+        emit WhitelistChanged(_address, _isWhitelisted);
+    }
 
     /************************************************************************
      * internal functions
