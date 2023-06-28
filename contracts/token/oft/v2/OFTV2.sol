@@ -23,7 +23,7 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     constructor(string memory _name, string memory _symbol, uint8 _sharedDecimals, address _lzEndpoint) ERC20(_name, _symbol) BaseOFTWithFee(_sharedDecimals, _lzEndpoint) {
         uint8 decimals = decimals();
         require(_sharedDecimals <= decimals, "OFT: sharedDecimals must be <= decimals");
-        ld2sdRate = 10 ** (decimals - _sharedDecimals);
+        ld2sdRate = 10**(decimals - _sharedDecimals);
     }
 
     function _requireCallerIsBorrowerOperations() internal view {
@@ -96,11 +96,15 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
         emit GravitaAddressesChanged(_borrowerOperationsAddress, _stabilityPoolAddress, _vesselManagerAddress);
     }
 
-    function setWhitelist(address _address, bool _isWhitelisted) external onlyOwner {
-		whitelistedContracts[_address] = _isWhitelisted;
+    function addWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = true;
+        emit WhitelistChanged(_address, true);
+    }
 
-		emit WhitelistChanged(_address, _isWhitelisted);
-	}
+    function removeWhitelist(address _address) external onlyOwner {
+        whitelistedContracts[_address] = false;
+        emit WhitelistChanged(_address, false);
+    }
 
     /************************************************************************
      * internal functions
@@ -113,16 +117,22 @@ contract OFTV2 is BaseOFTWithFee, ERC20 {
     }
 
     function _creditTo(uint16, address _toAddress, uint _amount) internal virtual override returns (uint) {
+        _requireValidRecipient(_toAddress);
         _mint(_toAddress, _amount);
         return _amount;
     }
 
     function _transferFrom(address _from, address _to, uint _amount) internal virtual override returns (uint) {
+        _requireValidRecipient(_to);
         address spender = _msgSender();
         // if transfer from this contract, no need to check allowance
         if (_from != address(this) && _from != spender) _spendAllowance(_from, spender, _amount);
         _transfer(_from, _to, _amount);
         return _amount;
+    }
+
+    function _requireValidRecipient(address _recipient) internal view {
+        require(_recipient != address(0) && _recipient != address(this), "DebtToken: Cannot transfer tokens directly to the token contract or the zero address");
     }
 
     function _ld2sdRate() internal view virtual override returns (uint) {
