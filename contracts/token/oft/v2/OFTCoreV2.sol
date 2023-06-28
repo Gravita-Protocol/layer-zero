@@ -133,13 +133,14 @@ abstract contract OFTCoreV2 is NonblockingLzApp {
     function _sendAndCallAck(uint16 _srcChainId, bytes memory _srcAddress, uint64 _nonce, bytes memory _payload) internal virtual {
         (bytes32 from, address to, uint64 amountSD, bytes memory payloadForCall, uint64 gasForCall) = _decodeSendAndCallPayload(_payload);
 
-        bool credited = creditedPackets[_srcChainId][_srcAddress][_nonce];
+        mapping(uint64 => bool) storage nonces = creditedPackets[_srcChainId][_srcAddress];
+        bool credited = nonces[_nonce];
         uint amount = _sd2ld(amountSD);
 
         // credit to this contract first, and then transfer to receiver only if callOnOFTReceived() succeeds
         if (!credited) {
             amount = _creditTo(_srcChainId, address(this), amount);
-            creditedPackets[_srcChainId][_srcAddress][_nonce] = true;
+            nonces[_nonce] = true;
         }
 
         if (!_isContract(to)) {
