@@ -3,6 +3,7 @@ import "@matterlabs/hardhat-zksync-solc"
 import "@matterlabs/hardhat-zksync-verify"
 
 require("dotenv").config()
+require('./tasks')
 
 const accounts = () => [`${process.env.DEPLOYER_PRIVATEKEY}`]
 

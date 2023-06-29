@@ -52,51 +52,6 @@
         "StargateComposed"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/interfaces/IStargateReceiver.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "7c1ad8081761de7854553f758f884738",
-      "sourceName": "contracts/interfaces/IStargateReceiver.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.4"
-      ],
-      "artifacts": [
-        "IStargateReceiver"
-      ]
-    },
     "/home/user/Desktop/Gravita/layer-zero/contracts/interfaces/IStargateRouter.sol": {
       "lastModificationDate": 1685716201865,
       "contentHash": "fc1bdba81b32d306c67f46a6cbebfbeb",
@@ -142,10 +97,10 @@
         "IStargateRouter"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
-      "lastModificationDate": 1685716609804,
-      "contentHash": "3fd36426274a5b35f7e702f87ba08a8e",
-      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+    "/home/user/Desktop/Gravita/layer-zero/contracts/interfaces/IStargateReceiver.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "7c1ad8081761de7854553f758f884738",
+      "sourceName": "contracts/interfaces/IStargateReceiver.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -179,14 +134,12 @@
           }
         }
       },
-      "imports": [
-        "./IUniswapV2Router01.sol"
-      ],
+      "imports": [],
       "versionPragmas": [
-        ">=0.6.2"
+        "^0.8.4"
       ],
       "artifacts": [
-        "IUniswapV2Router02"
+        "IStargateReceiver"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/math/SafeMath.sol": {
@@ -277,6 +230,53 @@
       ],
       "artifacts": [
         "IERC20"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol": {
+      "lastModificationDate": 1685716609804,
+      "contentHash": "3fd36426274a5b35f7e702f87ba08a8e",
+      "sourceName": "@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router02.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IUniswapV2Router01.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.2"
+      ],
+      "artifacts": [
+        "IUniswapV2Router02"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@uniswap/v2-periphery/contracts/interfaces/IUniswapV2Router01.sol": {
@@ -657,54 +657,6 @@
         "OFT"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/oft/IOFT.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "9ce3aaf6a0fc5f741d73e507fd1b0e5e",
-      "sourceName": "contracts/token/oft/IOFT.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "./IOFTCore.sol",
-        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
-      ],
-      "versionPragmas": [
-        ">=0.5.0"
-      ],
-      "artifacts": [
-        "IOFT"
-      ]
-    },
     "/home/user/Desktop/Gravita/layer-zero/contracts/token/oft/OFTCore.sol": {
       "lastModificationDate": 1685716201865,
       "contentHash": "d2b36b8bfc0293e78632273ad18a2811",
@@ -754,6 +706,54 @@
         "OFTCore"
       ]
     },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/oft/IOFT.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "9ce3aaf6a0fc5f741d73e507fd1b0e5e",
+      "sourceName": "contracts/token/oft/IOFT.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IOFTCore.sol",
+        "@openzeppelin/contracts/token/ERC20/IERC20.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IOFT"
+      ]
+    },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/introspection/IERC165.sol": {
       "lastModificationDate": 1685716609696,
       "contentHash": "03e6768535ac4da0e9756f1d8a4a018a",
@@ -797,53 +797,6 @@
       ],
       "artifacts": [
         "IERC165"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/oft/IOFTCore.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "88ac9f03ed739eef4a39e7195d667dae",
-      "sourceName": "contracts/token/oft/IOFTCore.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        ">=0.5.0"
-      ],
-      "artifacts": [
-        "IOFTCore"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/contracts/lzApp/NonblockingLzApp.sol": {
@@ -892,6 +845,53 @@
       ],
       "artifacts": [
         "NonblockingLzApp"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/oft/IOFTCore.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "88ac9f03ed739eef4a39e7195d667dae",
+      "sourceName": "contracts/token/oft/IOFTCore.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "IOFTCore"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/introspection/ERC165.sol": {
@@ -1361,10 +1361,10 @@
         "Pausable"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol": {
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
       "lastModificationDate": 1685716609684,
-      "contentHash": "9be05ac5a08ad0370e3cc36665ca490c",
-      "sourceName": "@openzeppelin/contracts/token/ERC1155/ERC1155.sol",
+      "contentHash": "79ff1a7eb801a525aa315fb7a679eede",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -1399,24 +1399,70 @@
         }
       },
       "imports": [
-        "./IERC1155.sol",
-        "./IERC1155Receiver.sol",
-        "./extensions/IERC1155MetadataURI.sol",
+        "./IERC721.sol",
+        "./IERC721Receiver.sol",
+        "./extensions/IERC721Metadata.sol",
         "../../utils/Address.sol",
         "../../utils/Context.sol",
+        "../../utils/Strings.sol",
         "../../utils/introspection/ERC165.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ERC1155"
+        "ERC721"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol": {
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
       "lastModificationDate": 1685716609684,
-      "contentHash": "d5a8f6e07ca38ec384856cfe9f08a867",
-      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC721Receiver"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
+      "lastModificationDate": 1685716609684,
+      "contentHash": "ec99d946db3685a3630554aa6055bd7f",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -1457,54 +1503,7 @@
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC1155"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
-      "lastModificationDate": 1685716609684,
-      "contentHash": "9f8822b72fe2702979e40160cb6d9636",
-      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC1155Receiver"
+        "IERC721"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/Address.sol": {
@@ -1552,10 +1551,55 @@
         "Address"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol": {
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
+      "lastModificationDate": 1685716605772,
+      "contentHash": "cf46906c4035f51639a22265066a9e78",
+      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "Strings"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
       "lastModificationDate": 1685716611088,
-      "contentHash": "9148c2e10c4efb12c71a7f080da5559b",
-      "sourceName": "@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+      "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
+      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -1590,13 +1634,13 @@
         }
       },
       "imports": [
-        "../IERC1155.sol"
+        "../IERC721.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "IERC1155MetadataURI"
+        "IERC721Metadata"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/introspection/ERC165Checker.sol": {
@@ -1745,98 +1789,6 @@
         "ONFT721Core"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol": {
-      "lastModificationDate": 1685716609684,
-      "contentHash": "c22d4395e33763de693fd440c6fd10e1",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721Receiver.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721Receiver"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/IERC721.sol": {
-      "lastModificationDate": 1685716609684,
-      "contentHash": "ec99d946db3685a3630554aa6055bd7f",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/IERC721.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../../utils/introspection/IERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721"
-      ]
-    },
     "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/IONFT721Core.sol": {
       "lastModificationDate": 1685716201869,
       "contentHash": "87725b032ea783ccdf4586bd748b070e",
@@ -1882,151 +1834,6 @@
       ],
       "artifacts": [
         "IONFT721Core"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol": {
-      "lastModificationDate": 1685716611088,
-      "contentHash": "efbc0d15b80a74e34dbe8da0f3e879bb",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/extensions/IERC721Metadata.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../IERC721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "IERC721Metadata"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC721/ERC721.sol": {
-      "lastModificationDate": 1685716609684,
-      "contentHash": "79ff1a7eb801a525aa315fb7a679eede",
-      "sourceName": "@openzeppelin/contracts/token/ERC721/ERC721.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "./IERC721.sol",
-        "./IERC721Receiver.sol",
-        "./extensions/IERC721Metadata.sol",
-        "../../utils/Address.sol",
-        "../../utils/Context.sol",
-        "../../utils/Strings.sol",
-        "../../utils/introspection/ERC165.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC721"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/utils/Strings.sol": {
-      "lastModificationDate": 1685716605772,
-      "contentHash": "cf46906c4035f51639a22265066a9e78",
-      "sourceName": "@openzeppelin/contracts/utils/Strings.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "Strings"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/ONFT721A.sol": {
@@ -2222,10 +2029,203 @@
         "ERC721A__IERC721Receiver"
       ]
     },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/ONFT721.sol": {
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/ERC1155.sol": {
+      "lastModificationDate": 1685716609684,
+      "contentHash": "9be05ac5a08ad0370e3cc36665ca490c",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/ERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IERC1155.sol",
+        "./IERC1155Receiver.sol",
+        "./extensions/IERC1155MetadataURI.sol",
+        "../../utils/Address.sol",
+        "../../utils/Context.sol",
+        "../../utils/introspection/ERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155.sol": {
+      "lastModificationDate": 1685716609684,
+      "contentHash": "d5a8f6e07ca38ec384856cfe9f08a867",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol": {
+      "lastModificationDate": 1685716609684,
+      "contentHash": "9f8822b72fe2702979e40160cb6d9636",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../../utils/introspection/IERC165.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155Receiver"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/node_modules/@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol": {
+      "lastModificationDate": 1685716611088,
+      "contentHash": "9148c2e10c4efb12c71a7f080da5559b",
+      "sourceName": "@openzeppelin/contracts/token/ERC1155/extensions/IERC1155MetadataURI.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../IERC1155.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "IERC1155MetadataURI"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/ProxyONFT1155.sol": {
       "lastModificationDate": 1685716201869,
-      "contentHash": "935e97c601055fd537ee9bf558f1ea53",
-      "sourceName": "contracts/token/onft/ONFT721.sol",
+      "contentHash": "896016e78d6da79082fa04a427fc823e",
+      "sourceName": "contracts/token/onft/extension/ProxyONFT1155.sol",
       "solcConfig": {
         "version": "0.8.12",
         "settings": {
@@ -2260,296 +2260,16 @@
         }
       },
       "imports": [
-        "./IONFT721.sol",
-        "./ONFT721Core.sol",
-        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+        "../ONFT1155Core.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
+        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
+        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol"
       ],
       "versionPragmas": [
         "^0.8.0"
       ],
       "artifacts": [
-        "ONFT721"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/UniversalONFT721.sol": {
-      "lastModificationDate": 1685716201869,
-      "contentHash": "539a86792b8711d7589d078c4f575aa6",
-      "sourceName": "contracts/token/onft/extension/UniversalONFT721.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../ONFT721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "UniversalONFT721"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/examples/ExampleUniversalONFT721.sol": {
-      "lastModificationDate": 1685716201861,
-      "contentHash": "d11b2bf38c0ebc2a373f7bda6a2b6b06",
-      "sourceName": "contracts/examples/ExampleUniversalONFT721.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../token/onft/extension/UniversalONFT721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ExampleUniversalONFT721"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/DistributeONFT721.sol": {
-      "lastModificationDate": 1685716201869,
-      "contentHash": "e20122dbe4ff344a561324680e8b37a6",
-      "sourceName": "contracts/token/onft/extension/DistributeONFT721.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../ONFT721.sol",
-        "../../../util/BitLib.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "DistributeONFT721"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/util/BitLib.sol": {
-      "lastModificationDate": 1685716201869,
-      "contentHash": "131e0926d9f6db97e7c808c79da1d0c8",
-      "sourceName": "contracts/util/BitLib.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [],
-      "versionPragmas": [
-        ">=0.5.0"
-      ],
-      "artifacts": [
-        "BitLib"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/DistributeONFT721Mock.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "3d7dabb11658929ea09c050ee96b64c9",
-      "sourceName": "contracts/mocks/DistributeONFT721Mock.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../token/onft/extension/DistributeONFT721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "DistributeONFT721Mock"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/ONFT721Mock.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "a9a75d19a8d23a4eec37e20381c559fd",
-      "sourceName": "contracts/mocks/ONFT721Mock.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../token/onft/ONFT721.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ONFT721Mock"
+        "ProxyONFT1155"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/ONFT1155Core.sol": {
@@ -2646,56 +2366,6 @@
       ],
       "artifacts": [
         "IONFT1155Core"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/ProxyONFT1155.sol": {
-      "lastModificationDate": 1685716201869,
-      "contentHash": "896016e78d6da79082fa04a427fc823e",
-      "sourceName": "contracts/token/onft/extension/ProxyONFT1155.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "../ONFT1155Core.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155.sol",
-        "@openzeppelin/contracts/token/ERC1155/IERC1155Receiver.sol",
-        "@openzeppelin/contracts/utils/introspection/ERC165Checker.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ProxyONFT1155"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/IONFT1155.sol": {
@@ -6512,6 +6182,383 @@
         "OmniCounter"
       ]
     },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/ERC1155Mock.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "6acb41fbe785e6de4a2d74c72789b270",
+      "sourceName": "contracts/mocks/ERC1155Mock.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC1155/ERC1155.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ERC1155Mock"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/ONFT721.sol": {
+      "lastModificationDate": 1685716201869,
+      "contentHash": "935e97c601055fd537ee9bf558f1ea53",
+      "sourceName": "contracts/token/onft/ONFT721.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "./IONFT721.sol",
+        "./ONFT721Core.sol",
+        "@openzeppelin/contracts/token/ERC721/ERC721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ONFT721"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/UniversalONFT721.sol": {
+      "lastModificationDate": 1685716201869,
+      "contentHash": "539a86792b8711d7589d078c4f575aa6",
+      "sourceName": "contracts/token/onft/extension/UniversalONFT721.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../ONFT721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "UniversalONFT721"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/examples/ExampleUniversalONFT721.sol": {
+      "lastModificationDate": 1685716201861,
+      "contentHash": "d11b2bf38c0ebc2a373f7bda6a2b6b06",
+      "sourceName": "contracts/examples/ExampleUniversalONFT721.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../token/onft/extension/UniversalONFT721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ExampleUniversalONFT721"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/token/onft/extension/DistributeONFT721.sol": {
+      "lastModificationDate": 1685716201869,
+      "contentHash": "e20122dbe4ff344a561324680e8b37a6",
+      "sourceName": "contracts/token/onft/extension/DistributeONFT721.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../ONFT721.sol",
+        "../../../util/BitLib.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DistributeONFT721"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/util/BitLib.sol": {
+      "lastModificationDate": 1685716201869,
+      "contentHash": "131e0926d9f6db97e7c808c79da1d0c8",
+      "sourceName": "contracts/util/BitLib.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.5.0"
+      ],
+      "artifacts": [
+        "BitLib"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/DistributeONFT721Mock.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "3d7dabb11658929ea09c050ee96b64c9",
+      "sourceName": "contracts/mocks/DistributeONFT721Mock.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../token/onft/extension/DistributeONFT721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "DistributeONFT721Mock"
+      ]
+    },
+    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/ONFT721Mock.sol": {
+      "lastModificationDate": 1685716201865,
+      "contentHash": "a9a75d19a8d23a4eec37e20381c559fd",
+      "sourceName": "contracts/mocks/ONFT721Mock.sol",
+      "solcConfig": {
+        "version": "0.8.12",
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "mode": "3"
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.methodIdentifiers",
+                "metadata"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        },
+        "zksolc": {
+          "version": "1.3.12",
+          "compilerSource": "binary",
+          "settings": {
+            "optimizer": {
+              "enabled": true,
+              "mode": "3"
+            },
+            "compilerPath": "",
+            "experimental": {}
+          }
+        }
+      },
+      "imports": [
+        "../token/onft/ONFT721.sol"
+      ],
+      "versionPragmas": [
+        "^0.8.0"
+      ],
+      "artifacts": [
+        "ONFT721Mock"
+      ]
+    },
     "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/ONFT721AMock.sol": {
       "lastModificationDate": 1685716201865,
       "contentHash": "e286753c3a885b404cbcf2ee8bc35fc5",
@@ -6604,53 +6651,6 @@
       ],
       "artifacts": [
         "ERC721Mock"
-      ]
-    },
-    "/home/user/Desktop/Gravita/layer-zero/contracts/mocks/ERC1155Mock.sol": {
-      "lastModificationDate": 1685716201865,
-      "contentHash": "6acb41fbe785e6de4a2d74c72789b270",
-      "sourceName": "contracts/mocks/ERC1155Mock.sol",
-      "solcConfig": {
-        "version": "0.8.12",
-        "settings": {
-          "optimizer": {
-            "enabled": true,
-            "mode": "3"
-          },
-          "outputSelection": {
-            "*": {
-              "*": [
-                "abi",
-                "evm.methodIdentifiers",
-                "metadata"
-              ],
-              "": [
-                "ast"
-              ]
-            }
-          }
-        },
-        "zksolc": {
-          "version": "1.3.12",
-          "compilerSource": "binary",
-          "settings": {
-            "optimizer": {
-              "enabled": true,
-              "mode": "3"
-            },
-            "compilerPath": "",
-            "experimental": {}
-          }
-        }
-      },
-      "imports": [
-        "@openzeppelin/contracts/token/ERC1155/ERC1155.sol"
-      ],
-      "versionPragmas": [
-        "^0.8.0"
-      ],
-      "artifacts": [
-        "ERC1155Mock"
       ]
     },
     "/home/user/Desktop/Gravita/layer-zero/contracts/examples/ExampleOFT.sol": {
