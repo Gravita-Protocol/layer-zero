@@ -1,4 +1,4 @@
-import { Wallet, utils } from "zksync-web3"
+import { Wallet, } from "zksync-web3"
 import * as ethers from "ethers"
 import { HardhatRuntimeEnvironment } from "hardhat/types"
 import { Deployer } from "@matterlabs/hardhat-zksync-deploy"
@@ -16,7 +16,8 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     const artifact = await deployer.loadArtifact("GravitaDebtToken")
     const constructorArgs = [lzEndpointAddress, sharedDecimals]
 
-    const walletBalance = await hre.ethers.provider.getBalance(await wallet.getAddress())
+    const provider = deployer.zkWallet.provider
+    const walletBalance = await provider.getBalance(await wallet.getAddress())
     const walletBalanceStr = ethers.utils.formatEther(walletBalance.toString())
     console.log(`Using wallet ${await wallet.getAddress()} [balance: ${walletBalanceStr}]`)
 
