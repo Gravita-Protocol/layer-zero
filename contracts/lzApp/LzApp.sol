@@ -15,7 +15,7 @@ abstract contract LzApp is Ownable, ILayerZeroReceiver, ILayerZeroUserApplicatio
     using BytesLib for bytes;
 
     // ua can not send payload larger than this by default, but it can be changed by the ua owner
-    uint constant public DEFAULT_PAYLOAD_SIZE_LIMIT = 10000;
+    uint constant public DEFAULT_PAYLOAD_SIZE_LIMIT = 10_000;
 
     ILayerZeroEndpoint public immutable lzEndpoint;
     mapping(uint16 => bytes) public trustedRemoteLookup;

@@ -41,7 +41,7 @@ module.exports = async function (taskArgs, hre) {
             remoteChainId, // remote LayerZero chainId
             toAddressBytes, // 'to' address to send tokens
             qty, // amount of tokens to send (in wei)
-            qty,
+            qty.mul(9995).div(10000),
             [owner.address, ethers.constants.AddressZero, "0x"],
             { value: fees[0] }
         )
