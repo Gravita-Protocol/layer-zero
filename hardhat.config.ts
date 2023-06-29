@@ -2,6 +2,9 @@ import "@matterlabs/hardhat-zksync-deploy"
 import "@matterlabs/hardhat-zksync-solc"
 import "@matterlabs/hardhat-zksync-verify"
 
+require("hardhat-deploy")
+require("hardhat-deploy-ethers")
+
 require("dotenv").config()
 require('./tasks')
 
