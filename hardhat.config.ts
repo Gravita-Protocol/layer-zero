@@ -45,6 +45,7 @@ module.exports = {
             ethNetwork: "goerli",
             zksync: true,
             verifyURL: "https://zksync2-testnet-explorer.zksync.dev/contract_verification",
+            accounts: accounts(),
         },
         zksync: {
             url: "https://mainnet.era.zksync.io",
