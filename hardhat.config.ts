@@ -35,9 +35,9 @@ module.exports = {
             },
         ],
     },
-    defaultNetwork: "zkSyncTestnet",
+    defaultNetwork: "zksync-goerli",
     networks: {
-        zkSyncTestnet: {
+        "zksync-goerli": {
             url: "https://testnet.era.zksync.dev",
             ethNetwork: "goerli",
             zksync: true,

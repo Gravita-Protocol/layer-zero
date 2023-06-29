@@ -9,12 +9,11 @@ export default async function (hre: HardhatRuntimeEnvironment) {
     console.log(`Running deploy script for Gravita's Debt Token contract on network ${hre.network.name}`)
 
     const lzEndpointAddress = LZ_ENDPOINTS[hre.network.name]
-    const sharedDecimals = 6
 
     const wallet = new Wallet(String(process.env.DEPLOYER_PRIVATEKEY))
     const deployer = new Deployer(hre, wallet)
     const artifact = await deployer.loadArtifact("GravitaDebtToken")
-    const constructorArgs = [lzEndpointAddress, sharedDecimals]
+    const constructorArgs = [lzEndpointAddress]
 
     const provider = deployer.zkWallet.provider
     const walletBalance = await provider.getBalance(await wallet.getAddress())
