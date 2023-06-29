@@ -8,7 +8,7 @@ const accounts = () => [`${process.env.DEPLOYER_PRIVATEKEY}`]
 
 module.exports = {
     zksolc: {
-        version: "1.3.10",
+        version: "1.3.12",
         compilerSource: "binary",
         settings: {},
     },
