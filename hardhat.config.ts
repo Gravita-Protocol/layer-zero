@@ -4,9 +4,7 @@ import "@matterlabs/hardhat-zksync-verify"
 
 require("dotenv").config()
 
-function accounts() {
-    return [`${process.env.DEPLOYER_PRIVATEKEY}`]
-}
+const accounts = () => [`${process.env.DEPLOYER_PRIVATEKEY}`]
 
 module.exports = {
     zksolc: {
@@ -34,15 +32,6 @@ module.exports = {
                     },
                 },
             },
-            // {
-            //     version: "0.7.6",
-            //     settings: {
-            //         optimizer: {
-            //             enabled: true,
-            //             runs: 200,
-            //         },
-            //     },
-            // },
         ],
     },
     defaultNetwork: "zkSyncTestnet",
@@ -51,19 +40,13 @@ module.exports = {
             url: "https://testnet.era.zksync.dev",
             ethNetwork: "goerli",
             zksync: true,
-            // verifyURL: 'https://zksync2-mainnet-explorer.zksync.io/contract_verification'
-            verifyURL: 'https://zksync2-testnet-explorer.zksync.dev/contract_verification'
-
+            verifyURL: "https://zksync2-testnet-explorer.zksync.dev/contract_verification",
         },
-    },
-    goerli: {
-        url: "https://goerli.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
-        chainId: 5,
-        accounts: accounts(),
-    },
-    "zksync-goerli": {
-        url: `https://testnet.era.zksync.dev`,
-        chainId: 280,
-        accounts: accounts(),
+        zksync: {
+            url: "https://mainnet.era.zksync.io",
+            ethNetwork: "mainnet",
+            zksync: true,
+            verifyURL: "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
+        },
     },
 }
