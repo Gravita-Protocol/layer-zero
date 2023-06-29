@@ -61,4 +61,9 @@ module.exports = {
         chainId: 5,
         accounts: accounts(),
     },
+    "zksync-goerli": {
+        url: `https://testnet.era.zksync.dev`,
+        chainId: 280,
+        accounts: accounts(),
+    },
 }
