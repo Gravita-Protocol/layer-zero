@@ -52,6 +52,7 @@ module.exports = {
             ethNetwork: "mainnet",
             zksync: true,
             verifyURL: "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
+            accounts: accounts(),
         },
     },
 }
