@@ -6,7 +6,8 @@
     "polygon",
     "arbitrum",
     "optimism",
-    "fantom"
+    "fantom",
+    "zksync"
   ],
   "testnet": [
     "goerli",
