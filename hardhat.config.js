@@ -145,5 +145,10 @@ module.exports = {
             chainId: 280,
             accounts: accounts(),
         },
+        "polygon-zkevm": {
+            url: "https://rpc.ankr.com/polygon_zkevm",
+            chainId: 1101,
+            accounts: accounts(),
+        },
     },
 }
