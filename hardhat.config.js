@@ -150,5 +150,10 @@ module.exports = {
             chainId: 1101,
             accounts: accounts(),
         },
+        "zkevm-testnet": {
+            url: "https://rpc.public.zkevm-test.net",
+            chainId: 1442,
+            accounts: accounts(),
+        },
     },
 }
