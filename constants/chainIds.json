@@ -16,5 +16,6 @@
   "meter-testnet": 10156,
   "zksync-goerli": 10165,
   "polygon-zkevm": 158,
-  "zkevm-testnet": 10158
+  "zkevm-testnet": 10158,
+  "zksync": 165
 }
