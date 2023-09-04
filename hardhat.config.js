@@ -155,5 +155,11 @@ module.exports = {
             chainId: 1442,
             accounts: accounts(),
         },
+        "base": {
+            url: "https://base.meowrpc.com",
+            chainId: 8453,
+            accounts: accounts(),
+
+        }
     },
 }
