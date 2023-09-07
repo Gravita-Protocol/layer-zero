@@ -24,5 +24,6 @@
   "metis": "",
   "moonbeam": "https://api-moonbeam.moonscan.io/api",
   "swimmer": "",
-  "polygon-zkevm": "https://api-zkevm.polygonscan.com/api"
+  "polygon-zkevm": "https://api-zkevm.polygonscan.com/api",
+  "base": "https://api.basescan.org/api"
 }

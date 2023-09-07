@@ -160,6 +160,11 @@ module.exports = {
             chainId: 8453,
             accounts: accounts(),
 
+        },
+        "base-testnet": {
+            url: "https://base-goerli.publicnode.com",
+            chainId: 84531,
+            accounts: accounts(),
         }
     },
 }

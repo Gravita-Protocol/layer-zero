@@ -17,6 +17,7 @@
   "zksync-goerli": 10165,
   "polygon-zkevm": 158,
   "zkevm-testnet": 10158,
+  "base-testnet": 10160,
   "zksync": 165,
   "base": 184
 }

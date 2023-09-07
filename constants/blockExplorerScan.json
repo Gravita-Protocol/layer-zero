@@ -19,5 +19,6 @@
   "OPTIMISM": "https://api-optimistic.etherscan.io/api",
   "POLYGON": "https://api.polygonscan.com/api",
   "POLYGON_TESTNET": "https://api-testnet.polygonscan.com/api",
-  "POLYGON_ZKEVM": "https://api-zkevm.polygonscan.com/api"
+  "POLYGON_ZKEVM": "https://api-zkevm.polygonscan.com/api",
+  "BASE": "https://basescan.org/api"
 }
