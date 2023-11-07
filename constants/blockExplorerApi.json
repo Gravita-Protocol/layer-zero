@@ -25,5 +25,7 @@
   "moonbeam": "https://api-moonbeam.moonscan.io/api",
   "swimmer": "",
   "polygon-zkevm": "https://api-zkevm.polygonscan.com/api",
-  "base": "https://api.basescan.org/api"
+  "base": "https://api.basescan.org/api",
+  "linea": "https://api.lineascan.build",
+  "linea-testnet": "https://api-testnet.lineascan.build/api"  
 }

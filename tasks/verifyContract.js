@@ -70,6 +70,7 @@ function urlEncode(putObj) {
 }
 
 function formatPutObj(baseContract, contractBuildInfo, contractDeployment, taskArgs, hre) {
+    console.log(`Using API_KEY = ${process.env[`SCAN_API_KEY_${hre.network.name}`]}`)
     let putObj= {
         apikey: process.env[`SCAN_API_KEY_${hre.network.name}`],
         module: "contract",

@@ -19,5 +19,7 @@
   "zkevm-testnet": 10158,
   "base-testnet": 10160,
   "zksync": 165,
-  "base": 184
+  "base": 184,
+  "linea": 183,
+  "linea-testnet": 10157
 }

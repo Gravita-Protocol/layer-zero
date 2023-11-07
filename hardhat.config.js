@@ -165,6 +165,16 @@ module.exports = {
             url: "https://base-goerli.publicnode.com",
             chainId: 84531,
             accounts: accounts(),
+        },
+        "linea": {
+            url: "https://rpc.linea.build",
+            chainId: 59144,
+            accounts: accounts(),
+        },
+        "linea-testnet": {
+            url: "https://rpc.goerli.linea.build",
+            chainId: 59140,
+            accounts: accounts(),
         }
     },
 }
