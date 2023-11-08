@@ -8,7 +8,8 @@
     "optimism",
     "fantom",
     "polygon-zkevm",
-    "base"
+    "base",
+    "zksync"
   ],
   "testnet": [
     "goerli",

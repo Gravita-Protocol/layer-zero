@@ -21,6 +21,6 @@
   "POLYGON_TESTNET": "https://api-testnet.polygonscan.com/api",
   "POLYGON_ZKEVM": "https://api-zkevm.polygonscan.com/api",
   "BASE": "https://basescan.org/api",
-  "LINEA": "https://api.lineascan.build",
+  "LINEA": "https://api.lineascan.build/api",
   "LINEA-TESTNET": "https://goerli.lineascan.build/api"
 }
