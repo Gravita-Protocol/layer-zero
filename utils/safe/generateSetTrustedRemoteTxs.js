@@ -6,8 +6,9 @@ const fs = require("fs")
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const template = require("./template.json")
-const remoteChainId = 183 // linea
-const remoteAddress = "0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487" // linea
+const remoteNetworkName = "mantle"
+const remoteChainId = 181 // layerzeroEndpointChainId for mantle
+const remoteAddress = "0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487" // GRAI on mantle
 const localContracts = [
     {
         name: "mainnet",
@@ -30,6 +31,11 @@ const localContracts = [
         address: "0xCA68ad4EE5c96871EC6C6dac2F714a8437A3Fe66",
     },
     {
+        name: "linea",
+        chainId: 59144,
+        address: "0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487",
+    },
+    {
         name: "polygon-zkevm",
         chainId: 1101,
         address: "0xCA68ad4EE5c96871EC6C6dac2F714a8437A3Fe66",
@@ -42,6 +48,7 @@ const localContracts = [
 ]
 
 async function generateTxs() {
+    fs.mkdirSync(`./output/${remoteNetworkName}`, { recursive: true })
     for (const localContract of localContracts) {
         const remoteAndLocal = ethers.utils.solidityPack(["address", "address"], [remoteAddress, localContract.address])
         template.chainId = `${localContract.chainId}`
@@ -49,9 +56,9 @@ async function generateTxs() {
         template.transactions[0].contractInputsValues._remoteChainId = `${remoteChainId}`
         template.transactions[0].contractInputsValues._path = remoteAndLocal
         const data = JSON.stringify(template, null, "\t")
-        fs.writeFileSync(`./output/${localContract.name}.json`, data)
+        fs.writeFileSync(`./output/${remoteNetworkName}/${localContract.name}.json`, data)
     }
 }
 
-// to run: node generateTxs
+// to run: `node generateSetTrustedRemoteTxs`
 generateTxs().then((res) => console.log("\nComplete!"))

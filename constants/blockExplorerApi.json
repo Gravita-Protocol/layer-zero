@@ -28,5 +28,6 @@
   "polygon-zkevm": "https://api-zkevm.polygonscan.com/api",
   "base": "https://api.basescan.org/api",
   "linea": "https://api.lineascan.build/api",
-  "linea-testnet": "https://api-testnet.lineascan.build/api"  
+  "linea-testnet": "https://api-testnet.lineascan.build/api",
+  "mantle": "https://explorer.mantle.xyz/api"
 }

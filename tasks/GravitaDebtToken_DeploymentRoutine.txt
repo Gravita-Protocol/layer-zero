@@ -1,0 +1,37 @@
+1) .env
+1.a) DEPLOYER_PRIVATEKEY
+1.b) SCAN_API_KEY_mantle
+
+2) https://layerzero.gitbook.io/docs/technical-reference/mainnet/supported-chain-ids
+2.a) layerzeroEndpoints.json
+2.b) chainIds.json
+2.c) blockExplorerApi.json
+
+3) npx hardhat --network mantle deploy --tags GravitaDebtToken
+
+4) npx hardhat --network mantle verifyContract --contract GravitaDebtToken
+
+5) create SAFE multisig
+
+6) GravitaDebtToken.setFeeOwner -> multisig
+
+7) GravitaDebtToken.setDefaultFeeBp -> 5
+
+GRAI Mainnet (101):  0xA8C6B0d3a06E834A8F0F70603625a475b87703a0 dFeeBp: 5 feeOwner: 0x6F8Fe995422c5efE6487A7B07f67E84aaD9D4eC8 owner: 0xE9Ac7a720C3511fD048a47f148066B0479102234
+GRAI Arbitrum (110): 0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487 dFeeBp: 5 feeOwner: 0xfB0214D7Ac08ed0D2D9cA920EA6D4f4be2654EA5 owner: 0xfB0214D7Ac08ed0D2D9cA920EA6D4f4be2654EA5
+GRAI Optimism (111): 0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487 dFeeBp: 5 feeOwner: 0x853b5db6310292dF1C8C05Ad0a4fdf0856B772BB owner: 0x853b5db6310292dF1C8C05Ad0a4fdf0856B772BB
+GRAI Base (184):     0xCA68ad4EE5c96871EC6C6dac2F714a8437A3Fe66 dFeeBp: 5 feeOwner: 0xaC677fD7e36b02d2054Be6C164435Fd7609265c8 owner: 0xaC677fD7e36b02d2054Be6C164435Fd7609265c8
+GRAI ZkEVM (158):    0xCA68ad4EE5c96871EC6C6dac2F714a8437A3Fe66 dFeeBp: 5 feeOwner: 0xc48aD04a391a0cfA538422360fAb8534b49d6878 owner: 0xc48aD04a391a0cfA538422360fAb8534b49d6878
+GRAI ZkSync (165):   0x5FC44E95eaa48F9eB84Be17bd3aC66B6A82Af709 dFeeBp: 5 feeOwner: 0x3369d2cf353be897CF83B9c30DcCD8Cc2B798dfD owner: 0x3369d2cf353be897CF83B9c30DcCD8Cc2B798dfD
+GRAI Linea (183):    0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487 dFeeBp: 5 feeOwner: 0x9811aa1e6e2181845c0ca8931792724f3c253cea owner: 0x9811aa1e6e2181845c0ca8931792724f3c253cea https://safe.linea.build/home
+GRAI Mantle (181):   0x894134a25a5faC1c2C26F1d8fBf05111a3CB9487 dFeeBp: 5 feeOwner: 0x601FD66A2a32D980835517b135178124E973Dd7f owner: 0x601FD66A2a32D980835517b135178124E973Dd7f https://multisig.mantle.xyz/
+
+8.a) npx hardhat --network mantle setTrustedRemote --target-network ethereum      --local-contract GravitaDebtToken --remote-contract GravitaProxy
+8.b) npx hardhat --network mantle setTrustedRemote --target-network arbitrum      --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+8.c) npx hardhat --network mantle setTrustedRemote --target-network optimism      --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+8.d) npx hardhat --network mantle setTrustedRemote --target-network base          --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+8.e) npx hardhat --network mantle setTrustedRemote --target-network linea         --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+8.f) npx hardhat --network mantle setTrustedRemote --target-network zksync        --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+8.g) npx hardhat --network mantle setTrustedRemote --target-network polygon-zkevm --local-contract GravitaDebtToken --remote-contract GravitaDebtToken
+
+9) GravitaDebtToken.transferOwnership -> multisig

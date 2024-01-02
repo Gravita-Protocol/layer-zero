@@ -21,5 +21,6 @@
   "zksync": 165,
   "base": 184,
   "linea": 183,
-  "linea-testnet": 10157
+  "linea-testnet": 10157,
+  "mantle": 181
 }

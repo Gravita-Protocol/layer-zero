@@ -1,0 +1,40 @@
+{
+	"version": "1.0",
+	"chainId": "1",
+	"createdAt": "1699105535000",
+	"meta": {
+		"name": "Transaction",
+		"description": "",
+		"txBuilderVersion": "1.16.0",
+		"createdFromSafeAddress": "",
+		"createdFromOwnerAddress": "",
+		"checksum": ""
+	},
+	"transactions": [
+		{
+			"to": "0xA8C6B0d3a06E834A8F0F70603625a475b87703a0",
+			"value": "0",
+			"data": null,
+			"contractMethod": {
+				"name": "setTrustedRemote",
+				"payable": false,
+				"inputs": [
+					{
+						"internalType": "uint16",
+						"name": "_remoteChainId",
+						"type": "uint16"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_path",
+						"type": "bytes"
+					}
+				]
+			},
+			"contractInputsValues": {
+				"_remoteChainId": "181",
+				"_path": "0x894134a25a5fac1c2c26f1d8fbf05111a3cb9487a8c6b0d3a06e834a8f0f70603625a475b87703a0"
+			}
+		}
+	]
+}

@@ -100,24 +100,29 @@ module.exports = {
     },
 
     networks: {
+        arbitrum: {
+            url: `https://arb1.arbitrum.io/rpc`,
+            chainId: 42_161,
+            accounts: accounts(),
+        },
+        "arbitrum-goerli": {
+            url: `https://goerli-rollup.arbitrum.io/rpc/`,
+            chainId: 421_613,
+            accounts: accounts(),
+        },
+        base: {
+            url: "https://base.meowrpc.com",
+            chainId: 8_453,
+            accounts: accounts(),
+        },
+        "base-testnet": {
+            url: "https://base-goerli.publicnode.com",
+            chainId: 84_531,
+            accounts: accounts(),
+        },
         ethereum: {
             url: "https://mainnet.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161", // public infura endpoint
             chainId: 1,
-            accounts: accounts(),
-        },
-        polygon: {
-            url: "https://rpc-mainnet.maticvigil.com",
-            chainId: 137,
-            accounts: accounts(),
-        },
-        arbitrum: {
-            url: `https://arb1.arbitrum.io/rpc`,
-            chainId: 42161,
-            accounts: accounts(),
-        },
-        optimism: {
-            url: `https://mainnet.optimism.io`,
-            chainId: 10,
             accounts: accounts(),
         },
         goerli: {
@@ -125,14 +130,29 @@ module.exports = {
             chainId: 5,
             accounts: accounts(),
         },
-        mumbai: {
-            url: "https://rpc-mumbai.maticvigil.com/",
-            chainId: 80001,
+        linea: {
+            url: "https://rpc.linea.build",
+            chainId: 59_144,
             accounts: accounts(),
         },
-        "arbitrum-goerli": {
-            url: `https://goerli-rollup.arbitrum.io/rpc/`,
-            chainId: 421613,
+        "linea-testnet": {
+            url: "https://rpc.goerli.linea.build",
+            chainId: 59_140,
+            accounts: accounts(),
+        },
+        mantle: {
+            url: "https://rpc.mantle.xyz",
+            chainId: 5_000,
+            accounts: accounts(),
+        },
+        mumbai: {
+            url: "https://rpc-mumbai.maticvigil.com/",
+            chainId: 80_001,
+            accounts: accounts(),
+        },
+        optimism: {
+            url: `https://mainnet.optimism.io`,
+            chainId: 10,
             accounts: accounts(),
         },
         "optimism-goerli": {
@@ -140,19 +160,19 @@ module.exports = {
             chainId: 420,
             accounts: accounts(),
         },
-        "zksync-goerli": {
-            url: `https://testnet.era.zksync.dev`,
-            chainId: 280,
+        polygon: {
+            url: "https://rpc-mainnet.maticvigil.com",
+            chainId: 137,
             accounts: accounts(),
         },
         "polygon-zkevm": {
             url: "https://zkevm-rpc.com",
-            chainId: 1101,
+            chainId: 1_101,
             accounts: accounts(),
         },
         "zkevm-testnet": {
             url: "https://rpc.public.zkevm-test.net",
-            chainId: 1442,
+            chainId: 1_442,
             accounts: accounts(),
         },
         zksync: {
@@ -162,26 +182,10 @@ module.exports = {
             verifyURL: "https://zksync2-mainnet-explorer.zksync.io/contract_verification",
             accounts: accounts(),
         },
-        "base": {
-            url: "https://base.meowrpc.com",
-            chainId: 8453,
-            accounts: accounts(),
-
-        },
-        "base-testnet": {
-            url: "https://base-goerli.publicnode.com",
-            chainId: 84531,
+        "zksync-goerli": {
+            url: `https://testnet.era.zksync.dev`,
+            chainId: 280,
             accounts: accounts(),
         },
-        "linea": {
-            url: "https://rpc.linea.build",
-            chainId: 59144,
-            accounts: accounts(),
-        },
-        "linea-testnet": {
-            url: "https://rpc.goerli.linea.build",
-            chainId: 59140,
-            accounts: accounts(),
-        }
     },
 }
