@@ -5,7 +5,7 @@ pragma solidity ^0.8.0;
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 abstract contract Fee is Ownable {
-    uint public constant BP_DENOMINATOR = 10000;
+    uint public constant BP_DENOMINATOR = 10_000;
 
     mapping(uint16 => FeeConfig) public chainIdToFeeBps;
     uint16 public defaultFeeBp;
@@ -20,7 +20,7 @@ abstract contract Fee is Ownable {
     event SetDefaultFeeBp(uint16 feeBp);
     event SetFeeOwner(address feeOwner);
 
-    constructor(){
+    constructor() {
         feeOwner = owner();
     }
 
@@ -32,7 +32,7 @@ abstract contract Fee is Ownable {
 
     function setFeeBp(uint16 _dstChainId, bool _enabled, uint16 _feeBp) public virtual onlyOwner {
         require(_feeBp <= BP_DENOMINATOR, "Fee: fee bp must be <= BP_DENOMINATOR");
-        chainIdToFeeBps[_dstChainId] = FeeConfig(_feeBp, _enabled);
+        chainIdToFeeBps[_dstChainId] = FeeConfig({feeBP: _feeBp, enabled: _enabled});
         emit SetFeeBp(_dstChainId, _enabled, _feeBp);
     }
 
@@ -42,12 +42,12 @@ abstract contract Fee is Ownable {
         emit SetFeeOwner(_feeOwner);
     }
 
-    function quoteOFTFee(uint16 _dstChainId, uint _amount) public virtual view returns (uint fee) {
+    function quoteOFTFee(uint16 _dstChainId, uint _amount) public view virtual returns (uint fee) {
         FeeConfig memory config = chainIdToFeeBps[_dstChainId];
         if (config.enabled) {
-            fee = _amount * config.feeBP / BP_DENOMINATOR;
+            fee = (_amount * config.feeBP) / BP_DENOMINATOR;
         } else if (defaultFeeBp > 0) {
-            fee = _amount * defaultFeeBp / BP_DENOMINATOR;
+            fee = (_amount * defaultFeeBp) / BP_DENOMINATOR;
         } else {
             fee = 0;
         }
@@ -55,7 +55,9 @@ abstract contract Fee is Ownable {
 
     function _payOFTFee(address _from, uint16 _dstChainId, uint _amount) internal virtual returns (uint amount, uint fee) {
         fee = quoteOFTFee(_dstChainId, _amount);
-        amount = _amount - fee;
+        unchecked {
+            amount = _amount - fee;
+        }
         if (fee > 0) {
             _transferFrom(_from, feeOwner, fee);
         }

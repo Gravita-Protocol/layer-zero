@@ -4,7 +4,7 @@
   "bsc": "https://api.bscscan.com/api",
   "bsc-testnet": "https://api-testnet.bscscan.com/api",
   "ethereum": "https://api.etherscan.io/api",
-  "ethereum-goerli": "https://api-goerli.etherscan.io/api",
+  "goerli": "https://api-goerli.etherscan.io/api",
   "fantom": "https://api.ftmscan.com/api",
   "fantom-testnet": "https://api-testnet.ftmscan.com/api",
   "arbitrum": "https://api.arbiscan.io/api",
@@ -13,7 +13,8 @@
   "mumbai": "https://api-testnet.polygonscan.com/api",
   "optimism": "https://api-optimistic.etherscan.io/api",
   "optimism-goerli": "https://api-goerli-optimistic.etherscan.io/api",
-
+  "zksync-goerli": "https://goerli.explorer.zksync.io",
+  "zksync": "https://explorer.zksync.io/",
   "aptos": "",
   "celo": "",
   "dexalot": "",
@@ -23,5 +24,10 @@
   "klaytn": "",
   "metis": "",
   "moonbeam": "https://api-moonbeam.moonscan.io/api",
-  "swimmer": ""
+  "swimmer": "",
+  "polygon-zkevm": "https://api-zkevm.polygonscan.com/api",
+  "base": "https://api.basescan.org/api",
+  "linea": "https://api.lineascan.build/api",
+  "linea-testnet": "https://api-testnet.lineascan.build/api",
+  "mantle": "https://explorer.mantle.xyz/api"
 }

@@ -6,7 +6,10 @@
     "polygon",
     "arbitrum",
     "optimism",
-    "fantom"
+    "fantom",
+    "polygon-zkevm",
+    "base",
+    "zksync"
   ],
   "testnet": [
     "goerli",
@@ -15,6 +18,8 @@
     "mumbai",
     "arbitrum-goerli",
     "optimism-goerli",
-    "fantom-testnet"
+    "fantom-testnet",
+    "zksync-goerli",
+    "base-testnet"
   ]
 }
